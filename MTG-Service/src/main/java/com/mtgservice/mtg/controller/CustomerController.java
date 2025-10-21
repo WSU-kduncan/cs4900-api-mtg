@@ -20,7 +20,7 @@ import jakarta.validation.constraints.Email;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(
-    path = "customer",
+    path = "/customer",
     produces = MediaType.APPLICATION_JSON_VALUE,
     consumes = MediaType.APPLICATION_JSON_VALUE)
 public class CustomerController {
@@ -29,13 +29,15 @@ public class CustomerController {
 
   private final CustomerService customerService;
 
- // @GetMapping
- // ResponseEntity<List<CustomerDto>> getAllCustomers() {
- //   return new ResponseEntity<>(
- //       customerDtoMapper.toDtoList(customerService.getAllCustomers()), HttpStatus.OK);
- // }
+ @GetMapping
+ ResponseEntity<List<CustomerDto>> getAllCustomers() {
+System.out.println("In getAllCustomers()");
+  return null;
+  //  return new ResponseEntity<>(
+  //      customerDtoMapper.toDtoList(customerService.getAllCustomers()), HttpStatus.OK);
+ }
 
-  @GetMapping(path = "{email}")
+  @GetMapping(path = "/{email}")
   ResponseEntity<CustomerDto> getCustomerByEmail(@PathVariable String email) {
     return new ResponseEntity<>(
         customerDtoMapper.toDto(customerService.getCustomerByEmail(email)), HttpStatus.OK);
