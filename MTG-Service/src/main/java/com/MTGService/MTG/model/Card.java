@@ -5,7 +5,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import java.math.BigDecimal;
 import lombok.Data;
 
 @Data
@@ -14,26 +13,26 @@ import lombok.Data;
 public class Card {
 
   @EmbeddedId
-  CardId Id;
+  CardId id;
 
   @Column(name = "CardCondition", columnDefinition = "VARCHAR(14)", nullable = false)
-  String CardCondition;
+  String cardCondition;
 
   @Column(name = "CardName", columnDefinition = "VARCHAR(128)", nullable = false)
-  String CardName;
+  String cardName;
 
   @Column(name = "CardDescription", columnDefinition = "TEXT", nullable = false)
-  String CardDescription;
+  String cardDescription;
 
   @Column(name = "ManaValue", columnDefinition = "VARCHAR(10)", nullable = false)
-  String ManaValue;
+  String manaValue;
 
   @Column(name = "CardType", columnDefinition = "VARCHAR(64)", nullable = false)
-  String CardType;
+  String cardType;
 
   @Column(name = "Price", columnDefinition = "DECIMAL(10,2)", nullable = false)
-  BigDecimal Price;
+  java.math.BigDecimal price;
 
   @Column(name = "Stock", columnDefinition = "INT", nullable = false)
-  Integer Stock;
+  Integer stock;
 }

@@ -2,15 +2,19 @@ package com.MTGService.MTG.model.Composite;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import java.io.Serializable;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Embeddable
-public class CardId {
-
+public class CardId implements Serializable {
   @Column(name = "CardNumber", columnDefinition = "SMALLINT", nullable = false)
-  Integer CardNumber;
+  Integer cardNumber;
 
   @Column(name = "SetName", columnDefinition = "CHAR(3)", nullable = false)
-  String SetName;
+  String setName;
 }
