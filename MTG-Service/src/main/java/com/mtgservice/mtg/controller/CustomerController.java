@@ -1,8 +1,6 @@
 package com.mtgservice.mtg.controller;
 
-import com.mtgservice.mtg.dto.CustomerDto;
-import com.mtgservice.mtg.mapper.CustomerDtoMapper;
-import com.mtgservice.mtg.service.CustomerService;
+
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -12,6 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.mtgservice.mtg.dto.CustomerDto;
+import com.mtgservice.mtg.mapper.CustomerDtoMapper;
+import com.mtgservice.mtg.service.CustomerService;
+
+import jakarta.validation.constraints.Email;
 
 @RequiredArgsConstructor
 @RestController
@@ -25,14 +29,14 @@ public class CustomerController {
 
   private final CustomerService customerService;
 
-  @GetMapping
-  ResponseEntity<List<CustomerDto>> getAllCusttomers() {
-    return new ResponseEntity<>(
-        CustomerDtoMapper.toDtoList(customerService.getAllCustomers()), HttpStatus.OK);
-  }
+ // @GetMapping
+ // ResponseEntity<List<CustomerDto>> getAllCustomers() {
+ //   return new ResponseEntity<>(
+ //       customerDtoMapper.toDtoList(customerService.getAllCustomers()), HttpStatus.OK);
+ // }
 
   @GetMapping(path = "{email}")
-  ResponseEntity<CustomerDto> getCustomerbyEmail(@PathVariable String email) {
+  ResponseEntity<CustomerDto> getCustomerByEmail(@PathVariable String email) {
     return new ResponseEntity<>(
         customerDtoMapper.toDto(customerService.getCustomerByEmail(email)), HttpStatus.OK);
   }
