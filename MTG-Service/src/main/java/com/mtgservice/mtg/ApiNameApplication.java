@@ -1,4 +1,4 @@
-package com.mtgservice.mtg.model;
+package com.mtgservice.mtg;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
