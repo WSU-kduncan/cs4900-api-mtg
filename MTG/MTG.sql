@@ -98,12 +98,13 @@ INSERT INTO Worker (EmployeeID, FirstName, LastName, Role, Email) VALUES
 INSERT INTO Card
   (CardNumber, SetName, CardCondition, CardName, CardDescription, ManaValue, CardType, Price, Stock)
 VALUES
-  (269, 'ALP', 'NM', 'Sol Ring',        'Adds two colorless mana.', '1', 'Artifact',  2.50,  25),
-  (1,   'LEB', 'NM', 'Black Lotus',     'The Power Nine icon.',     '0', 'Artifact', 150000.00, 1),
-  (4,   'MPS', 'LP', 'Lightning Bolt',  'Deal 3 damage to any target.', '1', 'Instant', 2.00, 120),
-  (2,   'DMU', 'NM', 'Sheoldred',       'Powerful creature.',       '4', 'Creature', 65.00,  8),
-  (10,  'ELD', 'MP', 'Fabled Passage',  'Fetch a basic land.',      '0', 'Land',     12.00, 30),
-  (7,   'IKO', 'NM', 'Lurrus',          'Companion creature.',      '3', 'Creature',  5.00, 14);
+  (269, 'ALP', 'NM', 'Sol Ring',        '{T}: Add {C}{C}.', '1', 'Artifact',  2.50,  25),
+  (1,   'LEB', 'NM', 'Black Lotus',     '{T}, Sacrifice Black Lotus: Add three mana of any one color.', '0', 'Artifact', 150000.00, 1),
+  (4,   'MPS', 'LP', 'Lightning Bolt',  'Lightning Bolt deals 3 damage to any target.', '1', 'Instant', 2.00, 120),
+  (2,   'DMU', 'NM', 'Sheoldred, the Apocalypse', 'Deathtouch. Whenever you draw a card, you gain 2 life. Whenever an opponent draws a card, they lose 2 life.', '4', 'Creature — Phyrexian Praetor', 65.00,  8),
+  (10,  'ELD', 'MP', 'Fabled Passage',  '{T}, Sacrifice Fabled Passage: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. If you control four or more lands, untap that land.', '0', 'Land',     12.00, 30),
+  (7,   'IKO', 'NM', 'Lurrus of the Dream-Den', 'Companion — Each permanent card in your starting deck has mana value 2 or less. Lifelink. During each of your turns, you may cast one permanent spell with mana value 2 or less from your graveyard.', '3', 'Creature — Cat Nightmare',  5.00, 14);
+
 
 -- 5) Lists (customer wishlists)
 INSERT INTO List (ListID, CustomerEmail, ListName) VALUES
