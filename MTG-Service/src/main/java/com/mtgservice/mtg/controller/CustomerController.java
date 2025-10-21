@@ -20,7 +20,7 @@ import jakarta.validation.constraints.Email;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(
-    path = "/customer",
+    path = "customer",
     produces = MediaType.APPLICATION_JSON_VALUE,
     consumes = MediaType.APPLICATION_JSON_VALUE)
 public class CustomerController {

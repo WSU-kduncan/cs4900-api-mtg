@@ -19,7 +19,7 @@ public class CustomerService  {
   }
 
   public Customer getCustomerByEmail(String email) throws EntityNotFoundException {
-    Optional<Customer> result = customerRepository.findByEmail(email);
+    Optional<Customer> result = customerRepository.findByCustomerEmail(email);
     if (result.isEmpty()) {
       throw new EntityNotFoundException("Customer (" + email + ") not found");
     }
