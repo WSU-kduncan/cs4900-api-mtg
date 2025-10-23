@@ -14,10 +14,10 @@ public interface CustomerDtoMapper {
 
   Customer toEntity(CustomerDto customerDto) throws EntityNotFoundException;
 
-  CustomerDto toDto(Customer customer) throws EntityNotFoundException;
+  // No exception needed for a simple DTO mapping
+  CustomerDto toDto(Customer customer);
 
-  static List<CustomerDto> toDtoList(List<Customer> customerList) throws EntityNotFoundException {
-    
-    throw new UnsupportedOperationException("Unimplemented method 'toDtoList'");
-  }
+  // Replaced the static implementation with an abstract method.
+  // MapStruct will generate the code to loop the list and call toDto().
+  List<CustomerDto> toDtoList(List<Customer> customerList);
 }

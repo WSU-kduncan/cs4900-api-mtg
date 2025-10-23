@@ -32,9 +32,9 @@ public class CustomerController {
  @GetMapping
  ResponseEntity<List<CustomerDto>> getAllCustomers() {
 System.out.println("In getAllCustomers()");
-  return null;
-  //  return new ResponseEntity<>(
-  //      customerDtoMapper.toDtoList(customerService.getAllCustomers()), HttpStatus.OK);
+
+   return new ResponseEntity<>( 
+       customerDtoMapper.toDtoList(customerService.getAllCustomers()), HttpStatus.OK);
  }
 
   @GetMapping(path = "/{email}")
