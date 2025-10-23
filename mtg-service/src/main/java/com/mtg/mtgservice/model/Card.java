@@ -1,6 +1,6 @@
 package com.mtg.mtgservice.model;
 
-import com.mtg.mtgservice.model.composite.CardID;
+import com.mtg.mtgservice.model.composite.CardId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -14,7 +14,7 @@ import lombok.Data;
 public class Card {
 
   @EmbeddedId
-  CardID id;
+  CardId id;
 
   @Column(name = "CardCondition", columnDefinition = "VARCHAR(14)", nullable = false)
   String cardCondition;
@@ -36,4 +36,5 @@ public class Card {
 
   @Column(name = "Stock", columnDefinition = "INT", nullable = false)
   Integer stock;
+
 }
