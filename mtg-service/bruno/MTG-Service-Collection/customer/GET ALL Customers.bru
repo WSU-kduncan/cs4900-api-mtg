@@ -1,0 +1,21 @@
+meta {
+  name: Get All Worker
+  type: http
+  seq: 1
+}
+
+get {
+<<<<<<<< HEAD:mtg-service/bruno/MTG-Service-Collection/worker/Get All Worker.bru
+  url: {{BASE_URL}}/workers
+  body: json
+========
+  url: {{BASE_URL}}/customer
+  body: none
+>>>>>>>> origin/woessner-homework-3:mtg-service/bruno-MTG-Service/GET ALL Customers.bru
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

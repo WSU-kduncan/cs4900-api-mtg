@@ -10,3 +10,4 @@ public class MtgServiceApplication {
 		SpringApplication.run(MtgServiceApplication.class, args);
 	}
 }
+

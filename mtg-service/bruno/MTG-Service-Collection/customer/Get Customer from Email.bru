@@ -1,0 +1,25 @@
+meta {
+  name: Get Workers ID
+  type: http
+  seq: 1
+}
+
+get {
+<<<<<<<< HEAD:mtg-service/bruno/MTG-Service-Collection/worker/Get Workers ID.bru
+  url: {{BASE_URL}}/workers/:id
+  body: json
+========
+  url: {{BASE_URL}}/customer
+  body: none
+>>>>>>>> origin/woessner-homework-3:mtg-service/bruno-MTG-Service/Get Customer from Email.bru
+  auth: inherit
+}
+
+params:path {
+  id: 101
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
