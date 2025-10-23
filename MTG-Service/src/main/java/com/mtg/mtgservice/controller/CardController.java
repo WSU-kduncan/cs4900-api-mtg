@@ -1,17 +1,16 @@
+package com.mtg.mtgservice.controller;
 
-
-package com.MTGService.MTG.controller;
-
-import com.MTGService.MTG.dto.CardDto;
-import com.MTGService.MTG.mapper.CardDtoMapper;
-import com.MTGService.MTG.model.Card;
-import com.MTGService.MTG.service.CardService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.mtg.mtgservice.dto.CardDto;
+import com.mtg.mtgservice.mapper.CardDtoMapper;
+import com.mtg.mtgservice.model.Card;
+import com.mtg.mtgservice.service.CardService;
 
 @RestController
 @RequiredArgsConstructor

@@ -1,4 +1,4 @@
-package com.MTGService.MTG.model.Composite;
+package com.mtg.mtgservice.model.composite;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

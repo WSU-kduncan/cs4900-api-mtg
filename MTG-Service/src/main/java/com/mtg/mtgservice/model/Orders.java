@@ -1,4 +1,4 @@
-package com.MTGService.MTG.model;
+package com.mtg.mtgservice.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,20 +19,20 @@ public class Orders {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "OrderID", columnDefinition = "INT", nullable = false)
-  Integer OrderID;
+  Integer orderId;
 
   @Column(name = "OrderDate", columnDefinition = "DATETIME", nullable = false)
-  LocalDateTime OrderDate;
+  LocalDateTime orderDate;
 
   @ManyToOne
   @JoinColumn(name = "OrderStatusTypeID", nullable = false)
-  OrderStatusType OrderStatusTypeID;
+  OrderStatusType orderStatusType;
 
   @ManyToOne
   @JoinColumn(name = "CustomerEmail", nullable = false)
-  Customer CustomerEmail;
+  Customer customer;
 
   @ManyToOne
   @JoinColumn(name = "EmployeeID", nullable = false)
-  Worker EmployeeID;
+  Worker employee;
 }

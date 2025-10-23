@@ -1,4 +1,4 @@
-package com.MTGService.MTG.model;
+package com.mtg.mtgservice.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,14 +13,14 @@ public class Customer {
 
   @Id
   @Column(name = "CustomerEmail", columnDefinition = "VARCHAR(128)", nullable = false)
-  String CustomerEmail;
+  String customerEmail;
 
   @Column(name = "FirstName", columnDefinition = "VARCHAR(35)", nullable = false)
-  String FirstName;
+  String firstName;
 
   @Column(name = "LastName", columnDefinition = "VARCHAR(35)", nullable = false)
-  String LastName;
+  String lastName;
 
   @Column(name = "PhoneNumber", columnDefinition = "CHAR(10)", nullable = false)
-  String PhoneNumber;
+  String phoneNumber;
 }

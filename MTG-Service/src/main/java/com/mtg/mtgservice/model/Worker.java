@@ -1,4 +1,4 @@
-package com.MTGService.MTG.model;
+package com.mtg.mtgservice.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,17 +16,17 @@ public class Worker {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "EmployeeID", columnDefinition = "INT", nullable = false)
-  Integer EmployeeID;
+  Integer employeeId;
 
   @Column(name = "FirstName", columnDefinition = "VARCHAR(35)", nullable = false)
-  String FirstName;
+  String firstName;
 
   @Column(name = "LastName", columnDefinition = "VARCHAR(35)", nullable = false)
-  String LastName;
+  String lastName;
 
   @Column(name = "Role", columnDefinition = "CHAR(3)", nullable = false)
-  String Role;
+  String role;
 
   @Column(name = "Email", columnDefinition = "VARCHAR(128)", nullable = false)
-  String Email;
+  String email;
 }

@@ -1,4 +1,4 @@
-package com.MTGService.MTG.model;
+package com.mtg.mtgservice.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,12 +18,12 @@ public class List {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "ListID", columnDefinition = "INT", nullable = false)
-  Integer ListID;
+  Integer listId;
 
   @ManyToOne
   @JoinColumn(name = "CustomerEmail", nullable = false)
-  Customer CustomerEmail;
+  Customer customerEmail;
 
   @Column(name = "ListName", columnDefinition = "VARCHAR(32)", nullable = false)
-  String ListName;
+  String listName;
 }

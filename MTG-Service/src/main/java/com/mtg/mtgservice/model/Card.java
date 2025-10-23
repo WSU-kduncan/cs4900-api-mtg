@@ -1,10 +1,11 @@
-package com.MTGService.MTG.model;
+package com.mtg.mtgservice.model;
 
-import com.MTGService.MTG.model.Composite.CardId;
+import com.mtg.mtgservice.model.composite.CardId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import java.math.BigDecimal;
 import lombok.Data;
 
 @Data
@@ -31,7 +32,7 @@ public class Card {
   String cardType;
 
   @Column(name = "Price", columnDefinition = "DECIMAL(10,2)", nullable = false)
-  java.math.BigDecimal price;
+  BigDecimal price;
 
   @Column(name = "Stock", columnDefinition = "INT", nullable = false)
   Integer stock;

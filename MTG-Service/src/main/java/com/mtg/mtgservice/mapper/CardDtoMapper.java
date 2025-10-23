@@ -1,10 +1,11 @@
-package com.MTGService.MTG.mapper;
+package com.mtg.mtgservice.mapper;
 
-import com.MTGService.MTG.dto.CardDto;
-import com.MTGService.MTG.model.Card;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
+
+import com.mtg.mtgservice.dto.CardDto;
+import com.mtg.mtgservice.model.Card;
 
 @Component
 public class CardDtoMapper {

@@ -1,4 +1,4 @@
-package com.MTGService.MTG.dto;
+package com.mtg.mtgservice.dto;
 
 import java.math.BigDecimal;
 import lombok.Data;

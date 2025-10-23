@@ -1,12 +1,13 @@
-package com.MTGService.MTG.service;
+package com.mtg.mtgservice.service;
 
-import com.MTGService.MTG.model.Card;
-import com.MTGService.MTG.model.Composite.CardId;
-import com.MTGService.MTG.repository.CardRepository;
 import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import com.mtg.mtgservice.model.Card;
+import com.mtg.mtgservice.model.composite.CardId;
+import com.mtg.mtgservice.repository.CardRepository;
 
 @Service
 @RequiredArgsConstructor

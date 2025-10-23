@@ -1,13 +1,13 @@
-package com.MTGService.MTG;
+package com.mtg.mtgservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiNameApplication {
+public class MtgServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiNameApplication.class, args);
+		SpringApplication.run(MtgServiceApplication.class, args);
 	}
 
 }
