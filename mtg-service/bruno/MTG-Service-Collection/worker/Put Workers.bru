@@ -1,0 +1,30 @@
+meta {
+  name: Put Workers
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{BASE_URL}}/workers/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 101
+}
+
+body:json {
+  {
+      "employeeID": 101,
+      "firstName": "Aline",
+      "lastName": "Reed",
+      "role": "ADM",
+      "email": "ava.reed@mtgshop.com"
+    }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
