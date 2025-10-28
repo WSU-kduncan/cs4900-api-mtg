@@ -6,10 +6,20 @@ meta {
 
 post {
   url: {{BASE_URL}}/customer
-  body: none
+  body: json
   auth: inherit
+}
+
+body:json {
+  {
+    "customerEmail": "jake@mtgshop.com",
+    "firstName": "jake",
+    "lastName": "carnie",
+    "phoneNumber": "7202535823"
+  }
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }
