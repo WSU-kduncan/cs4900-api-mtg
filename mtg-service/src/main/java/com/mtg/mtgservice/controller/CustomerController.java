@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RequiredArgsConstructor
@@ -36,5 +40,20 @@ public class CustomerController {
   ResponseEntity<CustomerDto> getCustomerByEmail(@PathVariable String customerEmail) {
     return new ResponseEntity<>(
         customerDtoMapper.toDto(customerService.getCustomerByEmail(customerEmail)), HttpStatus.OK);
+  }
+
+  @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity<CustomerDto> createCustomer(@Valid @RequestBody CustomerDto customerDto) {
+    CustomerDto createdCustomer = customerService.createCustomer(customerDto);
+    return new ResponseEntity<>(createdCustomer, HttpStatus.CREATED);
+  }
+
+  @PutMapping(path = "/{email}", consumes = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity<CustomerDto> updateCustomer(
+      @PathVariable("email") String customerEmail,
+      @Valid @RequestBody CustomerDto customerDto) {
+        
+    CustomerDto updatedCustomer = customerService.updateCustomer(customerEmail, customerDto);
+    return new ResponseEntity<>(updatedCustomer, HttpStatus.OK);
   }
 }

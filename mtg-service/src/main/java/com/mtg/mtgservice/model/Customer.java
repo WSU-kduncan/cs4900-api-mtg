@@ -1,7 +1,6 @@
 package com.mtg.mtgservice.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
@@ -14,7 +13,6 @@ public class Customer {
     
     @Id
     @Column(name = "CustomerEmail", columnDefinition = "VARCHAR(128)", nullable = false)
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     String customerEmail;
 
     @Column (name = "FirstName", columnDefinition = "VARCHAR(35)", nullable = false)

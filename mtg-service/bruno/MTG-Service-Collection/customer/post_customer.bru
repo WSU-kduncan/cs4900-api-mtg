@@ -1,0 +1,15 @@
+meta {
+  name: post_customer
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/customer
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
