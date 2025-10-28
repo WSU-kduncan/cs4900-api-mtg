@@ -1,0 +1,23 @@
+meta {
+  name: PUT Card
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{BASE_URL}}/card/269/ALP
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "price": 5.00,
+    "stock": 30,
+    "cardCondition": "NM"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

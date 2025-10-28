@@ -1,0 +1,30 @@
+meta {
+  name: POST Card
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/card
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "cardNumber": 15,
+    "setName": "ELD",
+    "cardName": "The Great Henge",
+    "cardType": "Legendary Artifact",
+    "manaValue": "9",
+    "cardCondition": "NM",
+    "cardDescription": "This spell costs X less to cast, where X is the greatest power among creatures you control...",
+    "price": 45.00,
+    "stock": 3
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}
