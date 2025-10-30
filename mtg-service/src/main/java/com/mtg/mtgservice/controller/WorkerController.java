@@ -7,13 +7,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mtg.mtgservice.dto.WorkerDto;
 import com.mtg.mtgservice.mapper.WorkerDtoMapper;
+import com.mtg.mtgservice.model.Worker;
 import com.mtg.mtgservice.service.WorkerService;
 
+import jakarta.persistence.EntityNotFoundException;
+
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
-
+import org.springframework.web.bind.annotation.DeleteMapping;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -26,6 +33,7 @@ public class WorkerController {
     private final WorkerDtoMapper workerDtoMapper;
 
     private final WorkerService workerService;
+    
 
     @GetMapping
     ResponseEntity<List<WorkerDto>> getAllWorkers() {
@@ -38,5 +46,37 @@ public class WorkerController {
         return new ResponseEntity<>(
             workerDtoMapper.toDto(workerService.getWorkerById(employeeID)), HttpStatus.OK);
             
+    }
+
+    @PostMapping
+    ResponseEntity<WorkerDto> newWorker(@RequestBody WorkerDto workerDto) {
+        Worker worker;
+        try {
+            worker = workerService.createWorker(workerDto);
+            // return new ResponseEntity<>(
+            //     workerDtoMapper.toDto(worker),
+            //     HttpStatus.CREATED);
+        } catch (EntityNotFoundException e) {
+
+            return new ResponseEntity<WorkerDto>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(
+            workerDtoMapper.toDto(worker),
+            HttpStatus.CREATED);
+    }
+
+    @PutMapping(path = "{employeeID}")
+    ResponseEntity<WorkerDto> updateWorker(
+        @PathVariable Integer employeeID,
+        @RequestBody WorkerDto workerDto) {
+        Worker worker;
+        try {
+            worker = workerService.updateWorker(workerDtoMapper.toEntity(workerDto));
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(
+            workerDtoMapper.toDto(worker),
+            HttpStatus.OK);
     }
 }

@@ -14,7 +14,7 @@ public class Worker {
     
     @Id
     @Column(name = "EmployeeID", columnDefinition = "int", nullable = false)
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.AUTO)
+    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     Integer employeeID;
 
     @Column (name = "FirstName", columnDefinition = "VARCHAR(35)", nullable = false)

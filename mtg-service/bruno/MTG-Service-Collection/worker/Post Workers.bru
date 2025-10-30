@@ -1,0 +1,26 @@
+meta {
+  name: Post Workers
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/workers
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      
+      "firstName": "Alines",
+      "lastName": "Reeds",
+      "role": "SAL",
+      "email": "alines.reeds@mtgshop.com"
+    }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
