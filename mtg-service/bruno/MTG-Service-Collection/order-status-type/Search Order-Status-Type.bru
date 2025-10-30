@@ -1,0 +1,20 @@
+meta {
+  name: Search Order-Status-Type
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/order-status-type/search?q=Paid
+  body: none
+  auth: inherit
+}
+
+params:query {
+  q: Paid
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

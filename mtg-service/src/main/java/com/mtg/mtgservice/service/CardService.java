@@ -4,12 +4,10 @@ import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 import com.mtg.mtgservice.model.composite.CardId;
 import com.mtg.mtgservice.dto.CardDto;
 import com.mtg.mtgservice.model.Card;
-import com.mtg.mtgservice.model.composite.CardId;
 import com.mtg.mtgservice.repository.CardRepository;
 
 @Service
