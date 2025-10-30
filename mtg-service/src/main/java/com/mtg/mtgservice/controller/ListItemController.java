@@ -26,9 +26,9 @@ public class ListItemController {
 
   @GetMapping(path = "/{listId}/{cardNumber}/{setName}", consumes = MediaType.ALL_VALUE)
   public ResponseEntity<ListItemDto> getById(
-      @PathVariable Integer listId,
-      @PathVariable Integer cardNumber,
-      @PathVariable String setName) {
+      @PathVariable("listId") Integer listId,
+      @PathVariable("cardNumber") Integer cardNumber,
+      @PathVariable("setName") String setName) {
     ListItem li = service.getById(listId, cardNumber, setName)
         .orElseThrow(() -> new RuntimeException("ListItem not found"));
     return new ResponseEntity<>(mapper.toDto(li), HttpStatus.OK);
@@ -47,12 +47,11 @@ public class ListItemController {
 
   @PutMapping(path = "/{listId}/{cardNumber}/{setName}")
   public ResponseEntity<ListItemDto> upsert(
-      @PathVariable Integer listId,
-      @PathVariable Integer cardNumber,
-      @PathVariable String setName,
+      @PathVariable("listId") Integer listId,
+      @PathVariable("cardNumber") Integer cardNumber,
+      @PathVariable("setName") String setName,
       @RequestBody ListItemDto body) {
 
-    // trust path for id parts
     body.setListId(listId);
     body.setCardNumber(cardNumber);
     body.setSetName(setName);

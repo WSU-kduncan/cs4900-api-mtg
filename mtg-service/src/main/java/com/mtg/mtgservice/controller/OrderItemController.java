@@ -26,9 +26,9 @@ public class OrderItemController {
 
   @GetMapping(path = "/{orderId}/{cardNumber}/{setName}", consumes = MediaType.ALL_VALUE)
   public ResponseEntity<OrderItemDto> getById(
-      @PathVariable Integer orderId,
-      @PathVariable Integer cardNumber,
-      @PathVariable String setName) {
+      @PathVariable("orderId") Integer orderId,
+      @PathVariable("cardNumber") Integer cardNumber,
+      @PathVariable("setName") String setName) {
     OrderItem oi = service.getById(orderId, cardNumber, setName)
         .orElseThrow(() -> new RuntimeException("OrderItem not found"));
     return new ResponseEntity<>(mapper.toDto(oi), HttpStatus.OK);
@@ -47,9 +47,9 @@ public class OrderItemController {
 
   @PutMapping(path = "/{orderId}/{cardNumber}/{setName}")
   public ResponseEntity<OrderItemDto> upsert(
-      @PathVariable Integer orderId,
-      @PathVariable Integer cardNumber,
-      @PathVariable String setName,
+      @PathVariable("orderId") Integer orderId,
+      @PathVariable("cardNumber") Integer cardNumber,
+      @PathVariable("setName") String setName,
       @RequestBody OrderItemDto body) {
 
     body.setOrderId(orderId);

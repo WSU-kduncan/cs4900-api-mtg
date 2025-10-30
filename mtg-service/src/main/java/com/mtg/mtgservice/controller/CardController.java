@@ -49,8 +49,8 @@ public class CardController {
 }
   @PutMapping(path = "/{cardNumber}/{setName}")
   public ResponseEntity<CardDto> update(
-      @PathVariable Integer cardNumber,
-      @PathVariable String setName,
+      @PathVariable("cardNumber") Integer cardNumber,
+      @PathVariable("setName") String setName,
       @RequestBody CardDto dto) {
     Card updated = service.update(cardNumber, setName, dto);
     return new ResponseEntity<>(mapper.toDto(updated), HttpStatus.OK);
