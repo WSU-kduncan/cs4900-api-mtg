@@ -12,7 +12,7 @@ import org.mapstruct.Mapper;
     uses = {OrdersService.class})
 public interface OrdersDtoMapper {
 
-    Orders toEntity(OrdersDto ordersDto) throws EntityNotFoundException;
+    Orders toEntity(OrdersDto dto) throws EntityNotFoundException;
 
     OrdersDto toDto(Orders orders);
 

@@ -1,7 +1,6 @@
 package com.mtg.mtgservice.service;
 
 import com.mtg.mtgservice.dto.OrdersDto;
-import com.mtg.mtgservice.mapper.OrdersDtoMapper;
 import com.mtg.mtgservice.model.Orders;
 import com.mtg.mtgservice.repository.OrdersRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -16,7 +15,6 @@ import java.util.List;
 public class OrdersService {
 
     private final OrdersRepository ordersRepository;
-    private final OrdersDtoMapper ordersDtoMapper;
 
     public List<Orders> getAllOrders() {
         return ordersRepository.findAll();
