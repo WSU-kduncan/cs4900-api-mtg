@@ -1,0 +1,27 @@
+meta {
+  name: Put OrderStatusType
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{BASE_URL}}/orderstatustype/:statusTypeID
+  body: json
+  auth: inherit
+}
+
+params:path {
+  statusTypeID: 1
+}
+
+body:json {
+  {
+    "statusTypeID": 1,
+    "statusDescription": "Test"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,17 +1,17 @@
 meta {
-  name: Get Workers ID
+  name: Get OrderStatusType ID
   type: http
-  seq: 1
+  seq: 2
 }
 
 get {
-  url: {{BASE_URL}}/workers/:id
+  url: {{BASE_URL}}/orderstatustype/:statusTypeID
   body: json
   auth: inherit
 }
 
 params:path {
-  id: 101
+  statusTypeID: 1
 }
 
 settings {

@@ -12,11 +12,11 @@ import jakarta.persistence.Column;
 @Data
 @Entity
 @Table(name = "List")
-public class List {
+public class Lists {
     @Id
     @Column(name = "ListID", columnDefinition = "int", nullable = false)
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.AUTO)
-    Integer listId;
+    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    Integer listID;
 
     @Column(name = "ListName", columnDefinition = "VARCHAR(32)", nullable = false)
     String listName;
