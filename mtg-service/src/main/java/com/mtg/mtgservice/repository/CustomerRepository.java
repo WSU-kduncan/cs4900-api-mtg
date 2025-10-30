@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.mtg.mtgservice.model.Customer;
 
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, Integer> {
+public interface CustomerRepository extends JpaRepository<Customer, String> {
 
   Optional<Customer> findByCustomerEmail(String email);
 }

@@ -1,0 +1,25 @@
+meta {
+  name: post_customer
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/customer
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "customerEmail": "jake@mtgshop.com",
+    "firstName": "jake",
+    "lastName": "carnie",
+    "phoneNumber": "7202535823"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
