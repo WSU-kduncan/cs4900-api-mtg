@@ -1,0 +1,33 @@
+meta {
+  name: PUT Update Order
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{BASE_URL}}/orders/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 5002
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "orderID": 5002,
+    "orderStatusTypeID": 4,
+    "customerEmail": "mike@mtgshop.com",
+    "employeeID": 103
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
