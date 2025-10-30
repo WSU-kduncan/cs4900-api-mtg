@@ -8,13 +8,13 @@ import lombok.Value;
 @Data
 @Value
 public class WorkerDto {
-    Integer employeeID;
+  Integer employeeID;
 
-    String firstName;
+  String firstName;
 
-    String lastName;
+  String lastName;
 
-    String role;
+  String role;
 
-    String email;
+  String email;
 }

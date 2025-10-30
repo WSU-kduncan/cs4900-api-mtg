@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = "list-item",
-  produces = MediaType.APPLICATION_JSON_VALUE,
-  consumes = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(
+    path = "list-item",
+    produces = MediaType.APPLICATION_JSON_VALUE,
+    consumes = MediaType.APPLICATION_JSON_VALUE)
 public class ListItemController {
 
   private final ListItemDtoMapper mapper;
@@ -29,7 +30,8 @@ public class ListItemController {
       @PathVariable Integer listId,
       @PathVariable Integer cardNumber,
       @PathVariable String setName) {
-    ListItem li = service.getById(listId, cardNumber, setName)
+    ListItem li = service
+        .getById(listId, cardNumber, setName)
         .orElseThrow(() -> new RuntimeException("ListItem not found"));
     return new ResponseEntity<>(mapper.toDto(li), HttpStatus.OK);
   }

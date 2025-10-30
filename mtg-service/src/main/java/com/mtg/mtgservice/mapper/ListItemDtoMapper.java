@@ -7,17 +7,18 @@ import com.mtg.mtgservice.model.composite.CardId;
 import com.mtg.mtgservice.model.composite.ListItemID;
 import com.mtg.mtgservice.service.CardService;
 import com.mtg.mtgservice.service.ListItemService;
-
-import org.mapstruct.*;
 import java.util.List;
-@Mapper(componentModel = "spring",
-        uses = {ListItemService.class, CardService.class},
-        unmappedTargetPolicy = ReportingPolicy.IGNORE)
+import org.mapstruct.*;
+
+@Mapper(
+    componentModel = "spring",
+    uses = {ListItemService.class, CardService.class},
+    unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface ListItemDtoMapper {
 
   @Mappings({
-      @Mapping(target = "id", ignore = true),
-      @Mapping(target = "quantityWanted", source = "quantityWanted")
+    @Mapping(target = "id", ignore = true),
+    @Mapping(target = "quantityWanted", source = "quantityWanted")
   })
   ListItem toEntity(ListItemDto dto);
 
@@ -38,10 +39,10 @@ public interface ListItemDtoMapper {
   }
 
   @Mappings({
-      @Mapping(target = "listId",     source = "id.listID.listID"),
-      @Mapping(target = "cardNumber", source = "id.card.id.cardNumber"),
-      @Mapping(target = "setName",    source = "id.card.id.setName"),
-      @Mapping(target = "quantityWanted", source = "quantityWanted")
+    @Mapping(target = "listId", source = "id.listID.listID"),
+    @Mapping(target = "cardNumber", source = "id.card.id.cardNumber"),
+    @Mapping(target = "setName", source = "id.card.id.setName"),
+    @Mapping(target = "quantityWanted", source = "quantityWanted")
   })
   ListItemDto toDto(ListItem entity);
 

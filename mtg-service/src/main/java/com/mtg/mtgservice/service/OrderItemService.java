@@ -6,18 +6,19 @@ import com.mtg.mtgservice.model.Orders;
 import com.mtg.mtgservice.model.composite.CardId;
 import com.mtg.mtgservice.model.composite.OrderItemID;
 import com.mtg.mtgservice.repository.OrderItemRepository;
+import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class OrderItemService {
   private final OrderItemRepository repo;
 
-  public List<OrderItem> getAll() { return repo.findAll(); }
+  public List<OrderItem> getAll() {
+    return repo.findAll();
+  }
 
   public Optional<OrderItem> getById(Integer orderId, Integer cardNumber, String setName) {
     Orders order = new Orders();
@@ -38,5 +39,7 @@ public class OrderItemService {
     return repo.findByIdOrderIDOrderID(orderId);
   }
 
-  public OrderItem save(OrderItem item) { return repo.save(item); }
+  public OrderItem save(OrderItem item) {
+    return repo.save(item);
+  }
 }

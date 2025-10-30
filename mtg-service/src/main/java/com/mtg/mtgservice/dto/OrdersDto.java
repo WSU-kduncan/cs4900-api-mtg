@@ -8,8 +8,8 @@ import lombok.Value;
 @Data
 @Value
 public class OrdersDto {
-    Integer orderID;
-    Short orderStatusTypeID;
-    String customerEmail;
-    Integer employeeID;
+  Integer orderID;
+  Short orderStatusTypeID;
+  String customerEmail;
+  Integer employeeID;
 }

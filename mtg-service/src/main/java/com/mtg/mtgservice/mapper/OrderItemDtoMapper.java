@@ -6,20 +6,17 @@ import com.mtg.mtgservice.model.OrderItem;
 import com.mtg.mtgservice.model.Orders;
 import com.mtg.mtgservice.model.composite.CardId;
 import com.mtg.mtgservice.model.composite.OrderItemID;
-
 import jakarta.persistence.EntityNotFoundException;
-
-import org.mapstruct.*;
 import java.util.List;
+import org.mapstruct.*;
 
 @Mapper(componentModel = "spring")
 public interface OrderItemDtoMapper {
 
   @Mappings({
-      @Mapping(target = "id", ignore = true),
-      @Mapping(target = "quantity", source = "quantity"),
-      @Mapping(target = "price",    source = "price"),
-
+    @Mapping(target = "id", ignore = true),
+    @Mapping(target = "quantity", source = "quantity"),
+    @Mapping(target = "price", source = "price"),
   })
   OrderItem toEntity(OrderItemDto dto) throws EntityNotFoundException;
 
@@ -39,11 +36,11 @@ public interface OrderItemDtoMapper {
   }
 
   @Mappings({
-      @Mapping(target = "orderId",    source = "id.orderID.orderID"),
-      @Mapping(target = "cardNumber", source = "id.card.id.cardNumber"),
-      @Mapping(target = "setName",    source = "id.card.id.setName"),
-      @Mapping(target = "quantity",   source = "quantity"),
-      @Mapping(target = "price",      source = "price")
+    @Mapping(target = "orderId", source = "id.orderID.orderID"),
+    @Mapping(target = "cardNumber", source = "id.card.id.cardNumber"),
+    @Mapping(target = "setName", source = "id.card.id.setName"),
+    @Mapping(target = "quantity", source = "quantity"),
+    @Mapping(target = "price", source = "price")
   })
   OrderItemDto toDto(OrderItem entity);
 

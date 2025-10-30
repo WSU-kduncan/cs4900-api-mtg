@@ -8,7 +8,7 @@ import lombok.Value;
 @Data
 @Value
 public class ListsDto {
-    Integer listID;
-    String customerEmail;
-    String listName;
+  Integer listID;
+  String customerEmail;
+  String listName;
 }

@@ -5,18 +5,19 @@ import com.mtg.mtgservice.model.ListItem;
 import com.mtg.mtgservice.model.composite.CardId;
 import com.mtg.mtgservice.model.composite.ListItemID;
 import com.mtg.mtgservice.repository.ListItemRepository;
+import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
-import java.util.List; 
 
 @Service
 @RequiredArgsConstructor
 public class ListItemService {
   private final ListItemRepository repo;
 
-  public List<ListItem> getAll() { return repo.findAll(); }
+  public List<ListItem> getAll() {
+    return repo.findAll();
+  }
 
   public Optional<ListItem> getById(Integer listId, Integer cardNumber, String setName) {
     com.mtg.mtgservice.model.Lists listEntity = new com.mtg.mtgservice.model.Lists();
@@ -37,5 +38,7 @@ public class ListItemService {
     return repo.findByIdListIDListID(listId);
   }
 
-  public ListItem save(ListItem item) { return repo.save(item); }
+  public ListItem save(ListItem item) {
+    return repo.save(item);
+  }
 }

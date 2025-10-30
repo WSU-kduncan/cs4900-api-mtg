@@ -3,7 +3,7 @@ package com.mtg.mtgservice.controller;
 import com.mtg.mtgservice.dto.CustomerDto;
 import com.mtg.mtgservice.mapper.CustomerDtoMapper;
 import com.mtg.mtgservice.service.CustomerService;
-
+import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -11,13 +11,11 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PutMapping;
-
 
 @RequiredArgsConstructor
 @RestController
@@ -50,9 +48,8 @@ public class CustomerController {
 
   @PutMapping(path = "/{email}", consumes = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<CustomerDto> updateCustomer(
-      @PathVariable("email") String customerEmail,
-      @Valid @RequestBody CustomerDto customerDto) {
-        
+      @PathVariable("email") String customerEmail, @Valid @RequestBody CustomerDto customerDto) {
+
     CustomerDto updatedCustomer = customerService.updateCustomer(customerEmail, customerDto);
     return new ResponseEntity<>(updatedCustomer, HttpStatus.OK);
   }

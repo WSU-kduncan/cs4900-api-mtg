@@ -7,7 +7,7 @@ import lombok.Data;
 public class OrderItemDto {
   Integer orderId;
   Integer cardNumber;
-  String  setName;
+  String setName;
   Integer quantity;
   BigDecimal price;
 }

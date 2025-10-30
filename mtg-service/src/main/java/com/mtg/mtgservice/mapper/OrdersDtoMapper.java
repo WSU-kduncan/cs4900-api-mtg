@@ -14,9 +14,9 @@ import org.mapstruct.ReportingPolicy;
     unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface OrdersDtoMapper {
 
-    Orders toEntity(OrdersDto dto) throws EntityNotFoundException;
+  Orders toEntity(OrdersDto dto) throws EntityNotFoundException;
 
-    OrdersDto toDto(Orders orders);
+  OrdersDto toDto(Orders orders);
 
-    List<OrdersDto> toDtoList(List<Orders> ordersList);
+  List<OrdersDto> toDtoList(List<Orders> ordersList);
 }

@@ -36,5 +36,4 @@ public class Card {
 
   @Column(name = "Stock", columnDefinition = "INT", nullable = false)
   Integer stock;
-
 }

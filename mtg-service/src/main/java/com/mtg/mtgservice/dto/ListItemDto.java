@@ -6,6 +6,6 @@ import lombok.Data;
 public class ListItemDto {
   Integer listId;
   Integer cardNumber;
-  String  setName;
+  String setName;
   Integer quantityWanted;
 }

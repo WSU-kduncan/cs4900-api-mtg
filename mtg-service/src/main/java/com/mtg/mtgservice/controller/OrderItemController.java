@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = "order-item",
-  produces = MediaType.APPLICATION_JSON_VALUE,
-  consumes = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(
+    path = "order-item",
+    produces = MediaType.APPLICATION_JSON_VALUE,
+    consumes = MediaType.APPLICATION_JSON_VALUE)
 public class OrderItemController {
 
   private final OrderItemDtoMapper mapper;
@@ -29,7 +30,8 @@ public class OrderItemController {
       @PathVariable Integer orderId,
       @PathVariable Integer cardNumber,
       @PathVariable String setName) {
-    OrderItem oi = service.getById(orderId, cardNumber, setName)
+    OrderItem oi = service
+        .getById(orderId, cardNumber, setName)
         .orElseThrow(() -> new RuntimeException("OrderItem not found"));
     return new ResponseEntity<>(mapper.toDto(oi), HttpStatus.OK);
   }

@@ -1,33 +1,28 @@
 package com.mtg.mtgservice.model.composite;
 
-import lombok.Data;
+import com.mtg.mtgservice.model.Card;
+import com.mtg.mtgservice.model.Lists;
+import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Embeddable;
-import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
-
-import com.mtg.mtgservice.model.Card;
-import com.mtg.mtgservice.model.Lists;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Embeddable
 @NoArgsConstructor
-
 public class ListItemID implements Serializable {
-    
-    @JoinColumn(name = "ListID", nullable = false)
-    @ManyToOne
-    Lists listID;
 
-    @JoinColumns({
-        @JoinColumn(name = "CardNumber", referencedColumnName = "CardNumber", nullable = false),
-        @JoinColumn(name = "SetName", referencedColumnName = "SetName", nullable = false)
-    })
-    @ManyToOne
-    Card card;
+  @JoinColumn(name = "ListID", nullable = false)
+  @ManyToOne
+  Lists listID;
 
-
+  @JoinColumns({
+    @JoinColumn(name = "CardNumber", referencedColumnName = "CardNumber", nullable = false),
+    @JoinColumn(name = "SetName", referencedColumnName = "SetName", nullable = false)
+  })
+  @ManyToOne
+  Card card;
 }
