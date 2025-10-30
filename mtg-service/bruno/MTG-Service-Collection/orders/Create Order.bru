@@ -1,0 +1,24 @@
+meta {
+  name: POST Create Order
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/orders
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "orderStatusTypeID": 1,
+    "customerEmail": "sara@mtgshop.com",
+    "employeeID": 102
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

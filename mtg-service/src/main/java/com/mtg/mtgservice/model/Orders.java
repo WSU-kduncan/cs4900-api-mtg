@@ -1,40 +1,29 @@
 package com.mtg.mtgservice.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.time.LocalDateTime;
+
+import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.SourceType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Column;
-import java.time.Instant;
 
 @Data
 @Entity
 @Table(name = "Orders")
-
 public class Orders {
-    @Id    
-    @Column(name = "OrderID", columnDefinition = "int", nullable = false)
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.AUTO)
-    Integer orderId;
 
-    @Column(name = "OrderDate", nullable = false)
-    @CreationTimestamp(source = SourceType.DB)
-    Instant orderDate;
+    @Id
+@Column(name = "OrderID", columnDefinition = "int", nullable = false)
+@GeneratedValue(strategy = GenerationType.IDENTITY)   // <-- was AUTO
+private Integer orderID;
 
-    @JoinColumn(name = "OrderStatusTypeID", nullable = false)
-    @ManyToOne
-    OrderStatusType orderStatusTypeId;
+    @Column(name = "OrderStatusTypeID", columnDefinition = "smallint", nullable = false)
+    private Short orderStatusTypeID;
 
-    @JoinColumn(name = "CustomerEmail", nullable = false)
-    @ManyToOne
-    Customer customerEmail;
+    @Column(name = "CustomerEmail", columnDefinition = "VARCHAR(128)", nullable = false)
+    private String customerEmail;
 
-    @JoinColumn(name = "EmployeeID", nullable = false)
-    @ManyToOne
-    Worker employeeId;
+    @Column(name = "EmployeeID", columnDefinition = "int", nullable = false)
+    private Integer employeeID;
+    
+    @Column(name = "OrderDate", nullable = false, columnDefinition = "DATETIME")
+private LocalDateTime orderDate = LocalDateTime.now();   // or Instant, etc.
 }
