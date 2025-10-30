@@ -14,7 +14,7 @@ public class OrderStatusType {
     @Id
     @Column (name = "StatusTypeID",columnDefinition = "tinyint", nullable = false)
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-    Integer statusTypeId;
+    Integer statusTypeID;
 
     @Column (name = "StatusDescription", columnDefinition = "VARCHAR(255)", nullable = false)
     String statusDescription;

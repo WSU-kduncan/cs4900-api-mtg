@@ -1,17 +1,13 @@
 meta {
-  name: Get Workers ID
+  name: Get All List
   type: http
   seq: 1
 }
 
 get {
-  url: {{BASE_URL}}/workers/:id
+  url: {{BASE_URL}}/list
   body: json
   auth: inherit
-}
-
-params:path {
-  id: 101
 }
 
 settings {

@@ -1,17 +1,17 @@
 meta {
-  name: Get Workers ID
+  name: Get List By Email
   type: http
-  seq: 1
+  seq: 2
 }
 
 get {
-  url: {{BASE_URL}}/workers/:id
+  url: {{BASE_URL}}/list/:customerEmail
   body: json
   auth: inherit
 }
 
 params:path {
-  id: 101
+  customerEmail: mike@mtgshop.com
 }
 
 settings {

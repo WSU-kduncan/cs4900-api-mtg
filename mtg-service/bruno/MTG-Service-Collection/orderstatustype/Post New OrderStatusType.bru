@@ -1,0 +1,23 @@
+meta {
+  name: Post New OrderStatusType
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/orderstatustype
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "statusTypeID": 1,
+    "statusDescription": "TestPost"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 import com.mtg.mtgservice.model.Card;
-import com.mtg.mtgservice.model.List;
+import com.mtg.mtgservice.model.Lists;
 
 @Data
 @Embeddable
@@ -20,7 +20,7 @@ public class ListItemID implements Serializable {
     
     @JoinColumn(name = "ListID", nullable = false)
     @ManyToOne
-    List listID;
+    Lists listID;
 
     @JoinColumns({
         @JoinColumn(name = "CardNumber", referencedColumnName = "CardNumber", nullable = false),

@@ -1,0 +1,28 @@
+meta {
+  name: Put List
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{BASE_URL}}/list/:customerEmail
+  body: json
+  auth: inherit
+}
+
+params:path {
+  customerEmail: mike@mtgshop.com
+}
+
+body:json {
+  {
+      "listID": 2,
+      "customerEmail": "mike@mtgshop.com",
+      "listName": "Standard Staples"
+    }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
