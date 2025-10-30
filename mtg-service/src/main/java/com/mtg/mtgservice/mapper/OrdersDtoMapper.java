@@ -6,10 +6,12 @@ import com.mtg.mtgservice.service.OrdersService;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 import org.mapstruct.Mapper;
+import org.mapstruct.ReportingPolicy;
 
 @Mapper(
     componentModel = "spring",
-    uses = {OrdersService.class})
+    uses = {OrdersService.class},
+    unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface OrdersDtoMapper {
 
     Orders toEntity(OrdersDto dto) throws EntityNotFoundException;

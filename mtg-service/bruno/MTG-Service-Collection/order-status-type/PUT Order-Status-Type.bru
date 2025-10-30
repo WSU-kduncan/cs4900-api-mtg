@@ -1,0 +1,23 @@
+meta {
+  name: PUT Order-Status-Type
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{BASE_URL}}/order-status-type/5
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "statusDescription": "Returned (RMA)"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

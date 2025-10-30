@@ -1,12 +1,10 @@
 package com.mtg.mtgservice.controller;
-
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import com.mtg.mtgservice.dto.CardDto;
 import com.mtg.mtgservice.mapper.CardDtoMapper;
 import com.mtg.mtgservice.model.Card;
@@ -32,8 +30,8 @@ public class CardController {
 
   @GetMapping(path = "/{cardNumber}/{setName}", consumes = MediaType.ALL_VALUE)
   public ResponseEntity<CardDto> getById(
-      @PathVariable Integer cardNumber,
-      @PathVariable String setName) {
+      @PathVariable("cardNumber") Integer cardNumber,
+      @PathVariable("setName") String setName) {
     Card card = service.getById(cardNumber, setName)
         .orElseThrow(() -> new RuntimeException("Card not found"));
     return new ResponseEntity<>(mapper.toDto(card), HttpStatus.OK);
@@ -42,5 +40,19 @@ public class CardController {
   @GetMapping(path = "/search", consumes = MediaType.ALL_VALUE)
   public ResponseEntity<List<CardDto>> search(@RequestParam String q) {
     return new ResponseEntity<>(mapper.toDtoList(service.searchByName(q)), HttpStatus.OK);
+  }
+  @PostMapping
+  public ResponseEntity<CardDto> create(@RequestBody CardDto dto) {
+    Card toSave = mapper.toEntity(dto);
+    Card saved = service.create(toSave);
+    return new ResponseEntity<>(mapper.toDto(saved), HttpStatus.CREATED);
+}
+  @PutMapping(path = "/{cardNumber}/{setName}")
+  public ResponseEntity<CardDto> update(
+      @PathVariable Integer cardNumber,
+      @PathVariable String setName,
+      @RequestBody CardDto dto) {
+    Card updated = service.update(cardNumber, setName, dto);
+    return new ResponseEntity<>(mapper.toDto(updated), HttpStatus.OK);
   }
 }

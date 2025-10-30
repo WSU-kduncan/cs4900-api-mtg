@@ -1,0 +1,21 @@
+meta {
+  name: GET Card by Id
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/card/:cardNumber/:setName
+  body: none
+  auth: inherit
+}
+
+params:path {
+  cardNumber: 1
+  setName: LEB
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

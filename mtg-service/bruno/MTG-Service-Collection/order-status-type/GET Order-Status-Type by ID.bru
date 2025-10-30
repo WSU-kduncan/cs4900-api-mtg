@@ -1,0 +1,16 @@
+meta {
+  name: GET Order-Status-Type by ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/order-status-type/4
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

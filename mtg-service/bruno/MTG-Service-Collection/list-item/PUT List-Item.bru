@@ -1,0 +1,22 @@
+meta {
+  name: PUT List-Item
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{BASE_URL}}/list-item/1/269/ALP
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "quantityWanted": 5
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

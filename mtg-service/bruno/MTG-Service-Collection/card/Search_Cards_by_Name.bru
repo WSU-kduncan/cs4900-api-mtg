@@ -1,0 +1,20 @@
+meta {
+  name: Search Cards by Name
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/card/search?q=Black Lotus
+  body: none
+  auth: inherit
+}
+
+params:query {
+  q: Black Lotus
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

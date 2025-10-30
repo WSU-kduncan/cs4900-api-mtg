@@ -1,15 +1,16 @@
 meta {
-  name: Get Cards
+  name: GET All List-Items
   type: http
   seq: 1
 }
 
 get {
-  url: 
+  url: {{BASE_URL}}/list-item
   body: none
   auth: inherit
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

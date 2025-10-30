@@ -1,0 +1,26 @@
+meta {
+  name: POST Order-Item
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/order-item
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "orderId": 5001,
+    "cardNumber": 4,
+    "setName": "MPS",
+    "quantity": 2,
+    "price": 2.00
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

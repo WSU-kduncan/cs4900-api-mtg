@@ -1,0 +1,23 @@
+meta {
+  name: POST Order-Status-Type
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/order-status-type
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "statusDescription": "Returned"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
