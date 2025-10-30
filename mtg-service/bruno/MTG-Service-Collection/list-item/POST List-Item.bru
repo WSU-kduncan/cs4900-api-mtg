@@ -1,0 +1,25 @@
+meta {
+  name: POST List-Item
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/list-item
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "listId": 1,
+    "cardNumber": 269,
+    "setName": "ALP",
+    "quantityWanted": 3
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,23 @@
+meta {
+  name: PUT Order-Item
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{BASE_URL}}/order-item/5001/4/MPS
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "quantity": 4,
+    "price": 2.00
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,15 @@
+meta {
+  name: GET by Order
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/order-item/order/5001
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

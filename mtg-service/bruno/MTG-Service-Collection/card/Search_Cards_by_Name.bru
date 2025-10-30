@@ -5,11 +5,16 @@ meta {
 }
 
 get {
-  url: {{BASE_URL}}/card/search
+  url: {{BASE_URL}}/card/search?q=Black Lotus
   body: none
   auth: inherit
 }
 
+params:query {
+  q: Black Lotus
+}
+
 settings {
   encodeUrl: true
+  timeout: 0
 }

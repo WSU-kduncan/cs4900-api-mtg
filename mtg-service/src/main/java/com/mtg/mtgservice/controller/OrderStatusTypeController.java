@@ -2,7 +2,6 @@ package com.mtg.mtgservice.controller;
 
 import com.mtg.mtgservice.dto.OrderStatusTypeDto;
 import com.mtg.mtgservice.mapper.OrderStatusTypeDtoMapper;
-import com.mtg.mtgservice.model.OrderStatusType;
 import com.mtg.mtgservice.service.OrderStatusTypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
