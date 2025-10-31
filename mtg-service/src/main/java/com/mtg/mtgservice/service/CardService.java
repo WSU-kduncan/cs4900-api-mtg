@@ -2,7 +2,7 @@ package com.mtg.mtgservice.service;
 
 import com.mtg.mtgservice.dto.CardDto;
 import com.mtg.mtgservice.model.Card;
-import com.mtg.mtgservice.model.composite.CardId;
+import com.mtg.mtgservice.model.composite.CardID;
 import com.mtg.mtgservice.repository.CardRepository;
 import java.util.List;
 import java.util.Optional;
@@ -21,22 +21,22 @@ public class CardService {
     return repo.findAll();
   }
 
-  public Optional<Card> getById(Integer cardNumber, String setName) {
-    return repo.findById(new CardId(cardNumber, setName));
+  public Optional<Card> getByID(Integer cardNumber, String setName) {
+    return repo.findById(new CardID(cardNumber, setName));
   }
 
   public Card create(Card toSave) {
-    CardId id = toSave.getId();
-    if (repo.existsById(id)) {
+    CardID ID = toSave.getID();
+    if (repo.existsById(ID)) {
       throw new IllegalStateException(
-          "Card already exists: " + id.getCardNumber() + "/" + id.getSetName());
+          "Card already exists: " + ID.getCardNumber() + "/" + ID.getSetName());
     }
     return repo.save(toSave);
   }
 
   public Card update(Integer cardNumber, String setName, CardDto dto) {
-    CardId id = new CardId(cardNumber, setName);
-    Card existing = repo.findById(id)
+    CardID ID = new CardID(cardNumber, setName);
+    Card existing = repo.findById(ID)
         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Card not found"));
     mapper.applyUpdates(existing, dto);
     return repo.save(existing);

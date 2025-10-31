@@ -28,8 +28,8 @@ public class OrdersController {
   }
 
   @GetMapping("{orderID}")
-  public ResponseEntity<OrdersDto> getOrderById(@PathVariable Integer orderID) {
-    return ResponseEntity.ok(ordersDtoMapper.toDto(ordersService.getOrderById(orderID)));
+  public ResponseEntity<OrdersDto> getOrderByID(@PathVariable Integer orderID) {
+    return ResponseEntity.ok(ordersDtoMapper.toDto(ordersService.getOrderByID(orderID)));
   }
 
   /* ------- CREATE ------- */

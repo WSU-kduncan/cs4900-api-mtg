@@ -2,7 +2,7 @@ package com.mtg.mtgservice.mapper;
 
 import com.mtg.mtgservice.dto.CardDto;
 import com.mtg.mtgservice.model.Card;
-import com.mtg.mtgservice.model.composite.CardId;
+import com.mtg.mtgservice.model.composite.CardID;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
@@ -12,8 +12,8 @@ public class CardDtoMapper {
 
   public CardDto toDto(Card c) {
     CardDto dto = new CardDto();
-    dto.setCardNumber(c.getId().getCardNumber());
-    dto.setSetName(c.getId().getSetName());
+    dto.setCardNumber(c.getID().getCardNumber());
+    dto.setSetName(c.getID().getSetName());
     dto.setCardName(c.getCardName());
     dto.setCardType(c.getCardType());
     dto.setManaValue(c.getManaValue());
@@ -30,7 +30,7 @@ public class CardDtoMapper {
 
   public Card toEntity(CardDto dto) {
     Card c = new Card();
-    c.setId(new CardId(dto.getCardNumber(), dto.getSetName()));
+    c.setID(new CardID(dto.getCardNumber(), dto.getSetName()));
     c.setCardName(dto.getCardName());
     c.setCardType(dto.getCardType());
     c.setManaValue(dto.getManaValue());

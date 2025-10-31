@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ListItemRepository extends JpaRepository<ListItem, ListItemID> {
-  List<ListItem> findByIdListIDListID(Integer listId);
+  List<ListItem> findByIDListIDListID(Integer listID);
 }

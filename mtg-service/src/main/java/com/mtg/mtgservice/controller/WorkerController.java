@@ -36,9 +36,9 @@ public class WorkerController {
   }
 
   @GetMapping(path = "{employeeID}")
-  ResponseEntity<WorkerDto> getWorkerById(@PathVariable Integer employeeID) {
+  ResponseEntity<WorkerDto> getWorkerByID(@PathVariable Integer employeeID) {
     return new ResponseEntity<>(
-        workerDtoMapper.toDto(workerService.getWorkerById(employeeID)), HttpStatus.OK);
+        workerDtoMapper.toDto(workerService.getWorkerByID(employeeID)), HttpStatus.OK);
   }
 
   @PostMapping

@@ -37,9 +37,9 @@ public class OrderStatusTypeController {
   }
 
   @GetMapping(path = "{statusTypeID}")
-  ResponseEntity<OrderStatusTypeDto> getOrderStatusTypeById(@PathVariable Integer statusTypeID) {
+  ResponseEntity<OrderStatusTypeDto> getOrderStatusTypeByID(@PathVariable Integer statusTypeID) {
     return new ResponseEntity<>(
-        orderStatusTypeDtoMapper.toDto(orderStatusTypeService.getOrderStatusTypeById(statusTypeID)),
+        orderStatusTypeDtoMapper.toDto(orderStatusTypeService.getOrderStatusTypeByID(statusTypeID)),
         HttpStatus.OK);
   }
 

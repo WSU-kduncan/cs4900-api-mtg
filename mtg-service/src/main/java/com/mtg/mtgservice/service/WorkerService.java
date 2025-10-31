@@ -19,7 +19,7 @@ public class WorkerService {
     return workerRepository.findAll();
   }
 
-  public Worker getWorkerById(Integer employeeID) throws EntityNotFoundException {
+  public Worker getWorkerByID(Integer employeeID) throws EntityNotFoundException {
     return workerRepository.findById(employeeID).orElseThrow();
   }
 

@@ -25,20 +25,20 @@ public class OrderItemController {
     return new ResponseEntity<>(mapper.toDtoList(service.getAll()), HttpStatus.OK);
   }
 
-  @GetMapping(path = "/{orderId}/{cardNumber}/{setName}", consumes = MediaType.ALL_VALUE)
-  public ResponseEntity<OrderItemDto> getById(
-      @PathVariable Integer orderId,
+  @GetMapping(path = "/{orderID}/{cardNumber}/{setName}", consumes = MediaType.ALL_VALUE)
+  public ResponseEntity<OrderItemDto> getByID(
+      @PathVariable Integer orderID,
       @PathVariable Integer cardNumber,
       @PathVariable String setName) {
     OrderItem oi = service
-        .getById(orderId, cardNumber, setName)
+        .getByID(orderID, cardNumber, setName)
         .orElseThrow(() -> new RuntimeException("OrderItem not found"));
     return new ResponseEntity<>(mapper.toDto(oi), HttpStatus.OK);
   }
 
-  @GetMapping(path = "/order/{orderId}", consumes = MediaType.ALL_VALUE)
-  public ResponseEntity<List<OrderItemDto>> getByOrder(@PathVariable Integer orderId) {
-    return new ResponseEntity<>(mapper.toDtoList(service.getByOrder(orderId)), HttpStatus.OK);
+  @GetMapping(path = "/order/{orderID}", consumes = MediaType.ALL_VALUE)
+  public ResponseEntity<List<OrderItemDto>> getByOrder(@PathVariable Integer orderID) {
+    return new ResponseEntity<>(mapper.toDtoList(service.getByOrder(orderID)), HttpStatus.OK);
   }
 
   @PostMapping
@@ -47,14 +47,14 @@ public class OrderItemController {
     return new ResponseEntity<>(mapper.toDto(saved), HttpStatus.CREATED);
   }
 
-  @PutMapping(path = "/{orderId}/{cardNumber}/{setName}")
+  @PutMapping(path = "/{orderID}/{cardNumber}/{setName}")
   public ResponseEntity<OrderItemDto> upsert(
-      @PathVariable Integer orderId,
+      @PathVariable Integer orderID,
       @PathVariable Integer cardNumber,
       @PathVariable String setName,
       @RequestBody OrderItemDto body) {
 
-    body.setOrderId(orderId);
+    body.setOrderID(orderID);
     body.setCardNumber(cardNumber);
     body.setSetName(setName);
 

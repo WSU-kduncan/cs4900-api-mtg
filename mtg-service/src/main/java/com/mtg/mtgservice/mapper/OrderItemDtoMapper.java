@@ -4,7 +4,7 @@ import com.mtg.mtgservice.dto.OrderItemDto;
 import com.mtg.mtgservice.model.Card;
 import com.mtg.mtgservice.model.OrderItem;
 import com.mtg.mtgservice.model.Orders;
-import com.mtg.mtgservice.model.composite.CardId;
+import com.mtg.mtgservice.model.composite.CardID;
 import com.mtg.mtgservice.model.composite.OrderItemID;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
@@ -14,31 +14,31 @@ import org.mapstruct.*;
 public interface OrderItemDtoMapper {
 
   @Mappings({
-    @Mapping(target = "id", ignore = true),
+    @Mapping(target = "ID", ignore = true),
     @Mapping(target = "quantity", source = "quantity"),
     @Mapping(target = "price", source = "price"),
   })
   OrderItem toEntity(OrderItemDto dto) throws EntityNotFoundException;
 
   @AfterMapping
-  default void fillId(OrderItemDto dto, @MappingTarget OrderItem entity) {
-    if (entity.getId() == null) entity.setId(new OrderItemID());
+  default void fillID(OrderItemDto dto, @MappingTarget OrderItem entity) {
+    if (entity.getID() == null) entity.setID(new OrderItemID());
 
     Orders order = new Orders();
-    order.setOrderID(dto.getOrderId());
+    order.setOrderID(dto.getOrderID());
 
-    CardId cid = new CardId(dto.getCardNumber(), dto.getSetName());
+    CardID cID = new CardID(dto.getCardNumber(), dto.getSetName());
     Card card = new Card();
-    card.setId(cid);
+    card.setID(cID);
 
-    entity.getId().setOrderID(order);
-    entity.getId().setCard(card);
+    entity.getID().setOrderID(order);
+    entity.getID().setCard(card);
   }
 
   @Mappings({
-    @Mapping(target = "orderId", source = "id.orderID.orderID"),
-    @Mapping(target = "cardNumber", source = "id.card.id.cardNumber"),
-    @Mapping(target = "setName", source = "id.card.id.setName"),
+    @Mapping(target = "orderID", source = "ID.orderID.orderID"),
+    @Mapping(target = "cardNumber", source = "ID.card.ID.cardNumber"),
+    @Mapping(target = "setName", source = "ID.card.ID.setName"),
     @Mapping(target = "quantity", source = "quantity"),
     @Mapping(target = "price", source = "price")
   })

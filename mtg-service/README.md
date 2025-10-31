@@ -25,7 +25,7 @@ This project demonstrates working **GET, POST, and PUT endpoints** for multiple 
 1. Open Docker Desktop → start container **`mtg`**  
    (compose file: `db/docker-compose.yml`)
 
-![docker-not-running.png](images/docker-not-running.png)
+![docker-not-running.png](assets/docker-not-running.png)
 
    ```bash
    cd db
@@ -33,7 +33,7 @@ This project demonstrates working **GET, POST, and PUT endpoints** for multiple 
 ```
 2. Verify it’s running: the green dot appears next to mtg in Docker Desktop. Port mapping 3306 → localhost 3306.
 
-![docker-running.png](images/docker-running.png)
+![docker-running.png](assets/docker-running.png)
 
 ---
 ## Run the Service
@@ -42,14 +42,14 @@ This project demonstrates working **GET, POST, and PUT endpoints** for multiple 
 
 Right-click src/main/java/com/mtg/mtgservice/MtgServiceApplication.java → Run Java.
 
-![run-java.png](images/run-java.png)
+![run-java.png](assets/run-java.png)
 
 ### Option 2 – Gradle CLI
 ```
 ./gradlew bootRun
 ```
 
-![java-app-starting.png](images/java-app-start.png)
+![java-app-starting.png](assets/java-app-start.png)
 
 ---
 When startup completes, the console shows:
@@ -63,15 +63,15 @@ Started MtgServiceApplication ... Tomcat started on port 8080
 ```
 bruno/MTG-Service-Collection
 ```
-![open-collection.png](images/open-collection.png)
+![open-collection.png](assets/open-collection.png)
 
-![collection-file-path.png](images/collection-file-path.png)
+![collection-file-path.png](assets/collection-file-path.png)
 
 2. Set the environment to local
 
 3. Run the API rquests for each entity
 
-![bruno.png](images/bruno.png)
+![bruno.png](assets/bruno.png)
 
 ---
 ## Example Endpoints
