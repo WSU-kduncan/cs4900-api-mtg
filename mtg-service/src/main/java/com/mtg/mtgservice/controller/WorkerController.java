@@ -20,10 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(
-    path = "workers",
-    produces = MediaType.APPLICATION_JSON_VALUE,
-    consumes = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "workers", produces = MediaType.APPLICATION_JSON_VALUE)
 public class WorkerController {
   private final WorkerDtoMapper workerDtoMapper;
 
@@ -41,7 +38,7 @@ public class WorkerController {
         workerDtoMapper.toDto(workerService.getWorkerById(employeeID)), HttpStatus.OK);
   }
 
-  @PostMapping
+  @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
   ResponseEntity<WorkerDto> newWorker(@RequestBody WorkerDto workerDto) {
     Worker worker;
     try {
@@ -56,7 +53,7 @@ public class WorkerController {
     return new ResponseEntity<>(workerDtoMapper.toDto(worker), HttpStatus.CREATED);
   }
 
-  @PutMapping(path = "{employeeID}")
+  @PutMapping(path = "{employeeID}", consumes = MediaType.APPLICATION_JSON_VALUE)
   ResponseEntity<WorkerDto> updateWorker(
       @PathVariable Integer employeeID, @RequestBody WorkerDto workerDto) {
     Worker worker;
