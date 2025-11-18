@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class ListItemDto {
-  Integer listId;
+  Integer listID;
   Integer cardNumber;
   String setName;
   Integer quantityWanted;

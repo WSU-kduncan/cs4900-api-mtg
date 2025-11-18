@@ -4,62 +4,71 @@ import com.mtg.mtgservice.dto.ListItemDto;
 import com.mtg.mtgservice.mapper.ListItemDtoMapper;
 import com.mtg.mtgservice.model.ListItem;
 import com.mtg.mtgservice.service.ListItemService;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(
-    path = "list-item",
-    produces = MediaType.APPLICATION_JSON_VALUE,
-    consumes = MediaType.APPLICATION_JSON_VALUE)
+    path = "/list-item",
+    produces = MediaType.APPLICATION_JSON_VALUE
+)
 public class ListItemController {
 
   private final ListItemDtoMapper mapper;
   private final ListItemService service;
 
-  @GetMapping(consumes = MediaType.ALL_VALUE)
+  // GET /list-item
+  @GetMapping
   public ResponseEntity<List<ListItemDto>> getAll() {
-    return new ResponseEntity<>(mapper.toDtoList(service.getAll()), HttpStatus.OK);
+    return ResponseEntity.ok(mapper.toDtoList(service.getAll()));
   }
 
-  @GetMapping(path = "/{listId}/{cardNumber}/{setName}", consumes = MediaType.ALL_VALUE)
+  // GET /list-item/{listID}/{cardNumber}/{setName}
+  @GetMapping("/{listID}/{cardNumber}/{setName}")
   public ResponseEntity<ListItemDto> getById(
-      @PathVariable Integer listId,
+      @PathVariable Integer listID,
       @PathVariable Integer cardNumber,
       @PathVariable String setName) {
     ListItem li = service
-        .getById(listId, cardNumber, setName)
+        .getById(listID, cardNumber, setName)
         .orElseThrow(() -> new RuntimeException("ListItem not found"));
-    return new ResponseEntity<>(mapper.toDto(li), HttpStatus.OK);
+    return ResponseEntity.ok(mapper.toDto(li));
   }
 
-  @GetMapping(path = "/list/{listId}", consumes = MediaType.ALL_VALUE)
-  public ResponseEntity<List<ListItemDto>> getByList(@PathVariable Integer listId) {
-    return new ResponseEntity<>(mapper.toDtoList(service.getByList(listId)), HttpStatus.OK);
+  // GET /list-item/list/{listID}
+  @GetMapping("/list/{listID}")
+  public ResponseEntity<List<ListItemDto>> getByList(@PathVariable Integer listID) {
+    return ResponseEntity.ok(mapper.toDtoList(service.getByList(listID)));
   }
 
-  @PostMapping
+  // POST /list-item
+  @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<ListItemDto> create(@RequestBody ListItemDto dto) {
-    ListItem saved = service.save(mapper.toEntity(dto));
-    return new ResponseEntity<>(mapper.toDto(saved), HttpStatus.CREATED);
+    ListItem saved = service.saveFromDto(
+        dto.getListID(),
+        dto.getCardNumber(),
+        dto.getSetName(),
+        dto.getQuantityWanted()
+    );
+    return ResponseEntity.status(HttpStatus.CREATED).body(mapper.toDto(saved));
   }
 
-  @PutMapping(path = "/{listId}/{cardNumber}/{setName}")
+  // PUT /list-item/{listID}/{cardNumber}/{setName}
+  @PutMapping(path = "/{listID}/{cardNumber}/{setName}", consumes = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<ListItemDto> upsert(
-      @PathVariable Integer listId,
+      @PathVariable Integer listID,
       @PathVariable Integer cardNumber,
       @PathVariable String setName,
       @RequestBody ListItemDto body) {
 
-    // trust path for id parts
-    body.setListId(listId);
+    body.setListID(listID);
     body.setCardNumber(cardNumber);
     body.setSetName(setName);
 
     ListItem saved = service.save(mapper.toEntity(body));
-    return new ResponseEntity<>(mapper.toDto(saved), HttpStatus.OK);
+    return ResponseEntity.ok(mapper.toDto(saved));
   }
 }

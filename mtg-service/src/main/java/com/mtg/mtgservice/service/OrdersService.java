@@ -19,7 +19,7 @@ public class OrdersService {
     return ordersRepository.findAll();
   }
 
-  public Orders getOrderById(Integer orderID) {
+  public Orders getOrderByID(Integer orderID) {
     return ordersRepository
         .findById(orderID)
         .orElseThrow(() -> new EntityNotFoundException("Order " + orderID + " not found"));
@@ -31,7 +31,7 @@ public class OrdersService {
 
   @Transactional
   public Orders updateOrder(Integer orderID, OrdersDto dto) {
-    Orders existing = getOrderById(orderID); // throws if missing
+    Orders existing = getOrderByID(orderID); // throws if missing
     existing.setOrderStatusTypeID(dto.getOrderStatusTypeID());
     existing.setCustomerEmail(dto.getCustomerEmail());
     existing.setEmployeeID(dto.getEmployeeID());

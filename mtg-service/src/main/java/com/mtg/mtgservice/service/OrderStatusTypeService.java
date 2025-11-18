@@ -19,7 +19,7 @@ public class OrderStatusTypeService {
     return orderStatusTypeRepository.findAll();
   }
 
-  public OrderStatusType getOrderStatusTypeById(Integer statusTypeID)
+  public OrderStatusType getOrderStatusTypeByID(Integer statusTypeID)
       throws EntityNotFoundException {
     return orderStatusTypeRepository.findById(statusTypeID).orElseThrow();
   }

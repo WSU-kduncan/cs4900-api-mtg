@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class CardId implements Serializable {
+public class CardID implements Serializable {
   @Column(name = "CardNumber", columnDefinition = "SMALLINT", nullable = false)
   Integer cardNumber;
 

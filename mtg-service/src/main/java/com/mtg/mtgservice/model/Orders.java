@@ -11,7 +11,7 @@ public class Orders {
 
   @Id
   @Column(name = "OrderID", columnDefinition = "int", nullable = false)
-  @GeneratedValue(strategy = GenerationType.IDENTITY) // <-- was AUTO
+  @GeneratedValue(strategy = GenerationType.IDENTITY) 
   private Integer orderID;
 
   @Column(name = "OrderStatusTypeID", columnDefinition = "smallint", nullable = false)
@@ -24,5 +24,5 @@ public class Orders {
   private Integer employeeID;
 
   @Column(name = "OrderDate", nullable = false, columnDefinition = "DATETIME")
-  private LocalDateTime orderDate = LocalDateTime.now(); // or Instant, etc.
+  private LocalDateTime orderDate = LocalDateTime.now(); 
 }

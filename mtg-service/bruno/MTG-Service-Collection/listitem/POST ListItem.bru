@@ -1,18 +1,21 @@
 meta {
-  name: POST Order-Status-Type
+  name: POST ListItem
   type: http
   seq: 4
 }
 
 post {
-  url: {{BASE_URL}}/order-status-type
+  url: {{BASE_URL}}/list-item
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "statusDescription": "Returned"
+    "listID": 1,
+    "cardNumber": 269,
+    "setName": "ALP",
+    "quantityWanted": 3
   }
   
 }

@@ -29,10 +29,10 @@ public class CardController {
   }
 
   @GetMapping(path = "/{cardNumber}/{setName}", consumes = MediaType.ALL_VALUE)
-  public ResponseEntity<CardDto> getById(
+  public ResponseEntity<CardDto> getByID(
       @PathVariable("cardNumber") Integer cardNumber, @PathVariable("setName") String setName) {
     Card card = service
-        .getById(cardNumber, setName)
+        .getByID(cardNumber, setName)
         .orElseThrow(() -> new RuntimeException("Card not found"));
     return new ResponseEntity<>(mapper.toDto(card), HttpStatus.OK);
   }

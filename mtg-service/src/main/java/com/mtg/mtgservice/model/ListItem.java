@@ -13,7 +13,7 @@ import lombok.Data;
 public class ListItem {
 
   @EmbeddedId
-  ListItemID id;
+  ListItemID ID;
 
   @Column(name = "QuantityWanted", columnDefinition = "smallint", nullable = false)
   Integer quantityWanted;

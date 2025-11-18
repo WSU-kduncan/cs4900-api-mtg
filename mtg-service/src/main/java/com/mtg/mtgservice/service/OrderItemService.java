@@ -3,7 +3,7 @@ package com.mtg.mtgservice.service;
 import com.mtg.mtgservice.model.Card;
 import com.mtg.mtgservice.model.OrderItem;
 import com.mtg.mtgservice.model.Orders;
-import com.mtg.mtgservice.model.composite.CardId;
+import com.mtg.mtgservice.model.composite.CardID;
 import com.mtg.mtgservice.model.composite.OrderItemID;
 import com.mtg.mtgservice.repository.OrderItemRepository;
 import java.util.List;
@@ -20,23 +20,23 @@ public class OrderItemService {
     return repo.findAll();
   }
 
-  public Optional<OrderItem> getById(Integer orderId, Integer cardNumber, String setName) {
+  public Optional<OrderItem> getByID(Integer orderID, Integer cardNumber, String setName) {
     Orders order = new Orders();
-    order.setOrderID(orderId);
+    order.setOrderID(orderID);
 
-    CardId cid = new CardId(cardNumber, setName);
+    CardID cID = new CardID(cardNumber, setName);
     Card card = new Card();
-    card.setId(cid);
+    card.setID(cID);
 
-    OrderItemID id = new OrderItemID();
-    id.setOrderID(order);
-    id.setCard(card);
+    OrderItemID ID = new OrderItemID();
+    ID.setOrderID(order);
+    ID.setCard(card);
 
-    return repo.findById(id);
+    return repo.findById(ID);
   }
 
-  public List<OrderItem> getByOrder(Integer orderId) {
-    return repo.findByIdOrderIDOrderID(orderId);
+  public List<OrderItem> getByOrder(Integer orderID) {
+    return repo.findByIDOrderIDOrderID(orderID);
   }
 
   public OrderItem save(OrderItem item) {
