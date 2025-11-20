@@ -33,4 +33,11 @@ public class WorkerService {
   public Worker createWorker(WorkerDto workerDto) throws EntityNotFoundException {
     return workerRepository.saveAndFlush(workerDtoMapper.toEntity(workerDto));
   }
+
+  public void deleteWorker(Integer employeeID) throws EntityNotFoundException {
+    if (!workerRepository.existsById(employeeID)) {
+      throw new EntityNotFoundException("Worker not found");
+    }
+    workerRepository.deleteById(employeeID);
+  }
 }
