@@ -61,4 +61,13 @@ public class OrderItemController {
     OrderItem saved = service.save(mapper.toEntity(body));
     return new ResponseEntity<>(mapper.toDto(saved), HttpStatus.OK);
   }
+
+  @DeleteMapping(path = "/{orderId}/{cardNumber}/{setName}", consumes = MediaType.ALL_VALUE)
+  public ResponseEntity<Void> delete(
+      @PathVariable Integer orderId,
+      @PathVariable Integer cardNumber,
+      @PathVariable String setName) {
+    service.delete(orderId, cardNumber, setName);
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+  }
 }

@@ -42,4 +42,19 @@ public class OrderItemService {
   public OrderItem save(OrderItem item) {
     return repo.save(item);
   }
+
+  public void delete(Integer orderId, Integer cardNumber, String setName) {
+    Orders order = new Orders();
+    order.setOrderID(orderId);
+
+    CardID cid = new CardID(cardNumber, setName);
+    Card card = new Card();
+    card.setID(cid);
+
+    OrderItemID id = new OrderItemID();
+    id.setOrderID(order);
+    id.setCard(card);
+
+    repo.deleteById(id);
+  }
 }
