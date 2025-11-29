@@ -11,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = {"http://127.0.0.1:4200", "http://localhost:4200"})
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(

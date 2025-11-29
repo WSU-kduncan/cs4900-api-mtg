@@ -37,4 +37,12 @@ public class OrdersService {
     existing.setEmployeeID(dto.getEmployeeID());
     return ordersRepository.save(existing);
   }
+
+  @Transactional
+  public void deleteOrder(Integer orderID) {
+    if (!ordersRepository.existsById(orderID)) {
+      throw new EntityNotFoundException("Order " + orderID + " not found");
+    }
+    ordersRepository.deleteById(orderID);
+  }
 }
