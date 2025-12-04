@@ -72,4 +72,11 @@ public class CardController {
     Card updated = service.update(cardNumber, setName, dto);
     return new ResponseEntity<>(mapper.toDto(updated), HttpStatus.OK);
   }
+
+  @DeleteMapping(path = "/{cardNumber}/{setName}", consumes = MediaType.ALL_VALUE)
+  public ResponseEntity<Void> delete(
+      @PathVariable Integer cardNumber, @PathVariable String setName) {
+    service.delete(cardNumber, setName);
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+  }
 }

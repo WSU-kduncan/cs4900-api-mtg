@@ -45,4 +45,12 @@ public class CardService {
   public List<Card> searchByName(String q) {
     return repo.findByCardNameContainingIgnoreCase(q);
   }
+
+  public void delete(Integer cardNumber, String setName) {
+    CardID ID = new CardID(cardNumber, setName);
+    if (!repo.existsById(ID)) {
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Card not found");
+    }
+    repo.deleteById(ID);
+  }
 }
