@@ -22,10 +22,10 @@ public class Card {
   @Column(name = "CardName", columnDefinition = "VARCHAR(128)", nullable = false)
   String cardName;
 
-  @Column(name = "CardDescription", columnDefinition = "TEXT", nullable = false)
+  @Column(name = "CardDescription", columnDefinition = "TEXT", nullable = true)
   String cardDescription;
 
-  @Column(name = "ManaValue", columnDefinition = "VARCHAR(10)", nullable = false)
+  @Column(name = "ManaValue", columnDefinition = "VARCHAR(10)", nullable = true)
   String manaValue;
 
   @Column(name = "CardType", columnDefinition = "VARCHAR(64)", nullable = false)

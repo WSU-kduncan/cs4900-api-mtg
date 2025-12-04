@@ -45,6 +45,22 @@ public class CardController {
 
   @PostMapping
   public ResponseEntity<CardDto> create(@RequestBody CardDto dto) {
+    // Validate required fields
+    if (dto.getCardNumber() == null || dto.getSetName() == null || dto.getSetName().isEmpty()) {
+      throw new IllegalArgumentException("cardNumber and setName are required");
+    }
+    if (dto.getPrice() == null || dto.getStock() == null) {
+      throw new IllegalArgumentException("price and stock are required");
+    }
+    
+    // Set defaults for optional fields
+    if (dto.getManaValue() == null || dto.getManaValue().isEmpty()) {
+      dto.setManaValue("N/A");
+    }
+    if (dto.getCardDescription() == null || dto.getCardDescription().isEmpty()) {
+      dto.setCardDescription("No description provided");
+    }
+    
     Card toSave = mapper.toEntity(dto);
     Card saved = service.create(toSave);
     return new ResponseEntity<>(mapper.toDto(saved), HttpStatus.CREATED);
