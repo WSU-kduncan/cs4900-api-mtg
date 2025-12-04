@@ -1,7 +1,11 @@
 package com.mtg.mtgservice.controller;
 
+import com.mtg.mtgservice.dto.OrderItemDto;
 import com.mtg.mtgservice.dto.OrdersDto;
+import com.mtg.mtgservice.mapper.OrderItemDtoMapper;
 import com.mtg.mtgservice.mapper.OrdersDtoMapper;
+import com.mtg.mtgservice.model.OrderItem;
+import com.mtg.mtgservice.service.OrderItemService;
 import com.mtg.mtgservice.service.OrdersService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -18,11 +22,21 @@ public class OrdersController {
 
   private final OrdersDtoMapper ordersDtoMapper;
   private final OrdersService ordersService;
+  private final OrderItemService orderItemService;
+  private final OrderItemDtoMapper orderItemDtoMapper;
 
   /* ------- READ ------- */
   @GetMapping(consumes = MediaType.ALL_VALUE)
   public ResponseEntity<List<OrdersDto>> getAllOrders() {
-    return ResponseEntity.ok(ordersDtoMapper.toDtoList(ordersService.getAllOrders()));
+    List<OrdersDto> orderDtos = ordersDtoMapper.toDtoList(ordersService.getAllOrders());
+
+    // Fetch and attach items for each order
+    orderDtos.forEach(orderDto -> {
+      List<OrderItem> items = orderItemService.findByOrderID(orderDto.getOrderID());
+      orderDto.setOrderItems(orderItemDtoMapper.toDtoList(items));
+    });
+
+    return ResponseEntity.ok(orderDtos);
   }
 
   @GetMapping(path = "{orderID}", consumes = MediaType.ALL_VALUE)
@@ -49,5 +63,16 @@ public class OrdersController {
   public ResponseEntity<Void> deleteOrder(@PathVariable Integer orderID) {
     ordersService.deleteOrder(orderID);
     return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+  }
+
+  /* ------- ADD ITEM TO ORDER ------- */
+  @PostMapping(path = "{orderID}/items", consumes = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity<OrderItemDto> addItemToOrder(
+      @PathVariable Integer orderID, @RequestBody OrderItemDto itemDto) {
+
+    itemDto.setOrderID(orderID);
+    OrderItem saved = orderItemService.save(orderItemDtoMapper.toEntity(itemDto));
+
+    return ResponseEntity.status(HttpStatus.CREATED).body(orderItemDtoMapper.toDto(saved));
   }
 }

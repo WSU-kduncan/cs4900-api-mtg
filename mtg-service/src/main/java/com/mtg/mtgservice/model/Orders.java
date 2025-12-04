@@ -14,7 +14,7 @@ public class Orders {
   @GeneratedValue(strategy = GenerationType.IDENTITY) 
   private Integer orderID;
 
-  @Column(name = "OrderStatusTypeID", columnDefinition = "smallint", nullable = false)
+  @Column(name = "OrderStatusTypeID", columnDefinition = "tinyint", nullable = false)
   private Short orderStatusTypeID;
 
   @Column(name = "CustomerEmail", columnDefinition = "VARCHAR(128)", nullable = false)

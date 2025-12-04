@@ -39,6 +39,10 @@ public class OrderItemService {
     return repo.findByIDOrderIDOrderID(orderID);
   }
 
+  public List<OrderItem> findByOrderID(Integer orderID) {
+    return repo.findByIDOrderIDOrderID(orderID);
+  }
+
   public OrderItem save(OrderItem item) {
     return repo.save(item);
   }

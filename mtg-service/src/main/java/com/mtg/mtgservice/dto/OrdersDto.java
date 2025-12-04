@@ -1,15 +1,21 @@
 package com.mtg.mtgservice.dto;
 
+import java.time.LocalDateTime;
+import java.util.List;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Value;
+import lombok.NoArgsConstructor;
 
 @Builder
 @Data
-@Value
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrdersDto {
   Integer orderID;
   Short orderStatusTypeID;
   String customerEmail;
   Integer employeeID;
+  LocalDateTime orderDate;
+  List<OrderItemDto> orderItems;
 }
