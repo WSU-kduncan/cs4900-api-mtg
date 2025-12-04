@@ -24,5 +24,12 @@ public class Orders {
   private Integer employeeID;
 
   @Column(name = "OrderDate", nullable = false, columnDefinition = "DATETIME")
-  private LocalDateTime orderDate = LocalDateTime.now(); 
+  private LocalDateTime orderDate;
+
+  @PrePersist
+  protected void onCreate() {
+    if (orderDate == null) {
+      orderDate = LocalDateTime.now();
+    }
+  }
 }

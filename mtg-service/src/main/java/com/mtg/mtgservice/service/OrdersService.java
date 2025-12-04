@@ -35,6 +35,12 @@ public class OrdersService {
     existing.setOrderStatusTypeID(dto.getOrderStatusTypeID());
     existing.setCustomerEmail(dto.getCustomerEmail());
     existing.setEmployeeID(dto.getEmployeeID());
+    // Preserve the original orderDate - don't update it
+    if (dto.getOrderDate() == null) {
+      // Keep the existing orderDate
+    } else {
+      existing.setOrderDate(dto.getOrderDate());
+    }
     return ordersRepository.save(existing);
   }
 
