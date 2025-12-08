@@ -17,7 +17,7 @@
 1. Open Docker Desktop → start container **`mtg`**  
    (compose file: `db/docker-compose.yml`)
 
-![docker-not-running.png](assets/docker-not-running.png)
+![docker-not-running.png](mtg-service/assets/docker-not-running.png)
 
    ```bash
    cd db
@@ -27,7 +27,7 @@
 
 2. Verify it’s running: the green dot appears next to mtg in Docker Desktop. Port mapping 3306 → localhost 3306.
 
-![docker-running.png](assets/docker-running.png)
+![docker-running.png](mtg-service/assets/docker-running.png)
 
 ---
 ## Run the Service
@@ -36,7 +36,7 @@
 
 Right-click src/main/java/com/mtg/mtgservice/MtgServiceApplication.java → Run Java.
 
-![run-java.png](assets/run-java.png)
+![run-java.png](mtg-service/assets/run-java.png)
 
 ### Option 2 – Gradle CLI
 
@@ -53,7 +53,7 @@ Should look like this, `~/cs4900-api-mtg/mtg-service$`
 ./gradlew bootRun
 ```
 
-![java-app-starting.png](assets/java-app-start.png)
+![java-app-starting.png](mtg-service/assets/java-app-start.png)
 
 ---
 When startup completes, the console shows:
@@ -67,15 +67,15 @@ Started MtgServiceApplication ... Tomcat started on port 8080
 ```
 bruno/MTG-Service-Collection
 ```
-![open-collection.png](assets/open-collection.png)
+![open-collection.png](mtg-service/assets/open-collection.png)
 
-![collection-file-path.png](assets/collection-file-path.png)
+![collection-file-path.png](mtg-service/assets/collection-file-path.png)
 
 2. Set the environment to local
 
 3. Run the API rquests for each entity
 
-![bruno.png](assets/bruno.png)
+![bruno.png](mtg-service/assets/bruno.png)
 
 ---
 ## Example Endpoints
