@@ -1,13 +1,5 @@
 # MTG-Service API  
-**Group Project – Homework 5 Catch Up / Verification**
 
----
-
-## Purpose / Objectives
-The purpose of this service is to provide a working REST API for the **Magic: The Gathering inventory and order management** system.  
-This project demonstrates working **GET, POST, and PUT endpoints** for multiple entities (`Card`, `ListItem`, `OrderItem`, `OrderStatusType`, etc.) that connect to a MariaDB database container.
-
----
 
 ## Required Tools
 | Tool | Purpose | Notes |
@@ -31,6 +23,8 @@ This project demonstrates working **GET, POST, and PUT endpoints** for multiple 
    cd db
    docker compose up -d
 ```
+## **NOTE: IF YOU ARE GETTING ERRORS THAT DOCKER DESKTOP IS NOT RUNNING, MAKE SURE THAT YOU ARE IN THE DIRECTORY WHERE DOCKER-COMPOSE.YML, EITHER IN db FOLDER IN CS4900-API-MTG OR IN WHATEVER FOLDER YOU DOWNLOADED IT IN**
+
 2. Verify it’s running: the green dot appears next to mtg in Docker Desktop. Port mapping 3306 → localhost 3306.
 
 ![docker-running.png](assets/docker-running.png)
@@ -45,6 +39,16 @@ Right-click src/main/java/com/mtg/mtgservice/MtgServiceApplication.java → Run 
 ![run-java.png](assets/run-java.png)
 
 ### Option 2 – Gradle CLI
+
+1. Ensure that you are in the correct directory of cs4900-api-mtg.
+2. cd into mtg-service
+```
+cd mtg-service
+```
+
+Should look like this, `~/cs4900-api-mtg/mtg-service$`
+
+## **NOTE: THE NEXT STEP WILL NOT WORK IF YOU ARE NOT IN MTG-SERVICE FOLDER** <br>
 ```
 ./gradlew bootRun
 ```
