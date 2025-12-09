@@ -2,28 +2,28 @@
 
 ## GET methods
 
-### Worker Entity
-* All workers
-* Worker by employeeID
-* Worker where firstName is
-
 ### Card Entity
-* All Cards
-* Card by CardId
-* Card where CardName is
+* All Cards - ```/card```
+* Card by CardID - ```/card/:cardNumber/:setName```
+* Card where CardName is - ```/card/search```
+  
+### Worker Entity
+* All workers - ```/workers```
+* Worker by employeeID - ```/workers/:id```
 
-### Customer Entity
-* All customers
-* Customer by customerEmail
-* Customer by firstName is
+### Order Entity
+* All orders - ```/orders```
+* Order by orderID - ```/orders/5001```
 
 ## POST methods
-* New Card
+* New Card - ```/card```
+* New Worker - ```/workers```
+* New Order - ```/orders```
 
 ## PUT methods
-* Update Worker
-* Update Card
-* Update Customer 
+* Update Card - ```/card/269/ALP```
+* Update Worker - ```/workers/:id```
+* Update Order  - ```/orders/:id```
 
 <!-- ---
 # Aziz Saleh's api routes
