@@ -1,0 +1,24 @@
+meta {
+  name: player-update
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/player/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+  "playerName": "Ethan",
+  "wins": 3,
+  "losses": 1,
+  "ties": 1,
+  "casualWins": 2,
+  "casualLosses": 4
+}
+
+settings {
+  encodeUrl: true
+}

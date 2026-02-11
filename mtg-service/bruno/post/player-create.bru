@@ -1,0 +1,25 @@
+meta {
+  name: player-create
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/player
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {"playerName": "Alice",
+  "wins": 0,
+  "losses": 0,
+  "ties": 0,
+  "casualWins": 0,
+  "casualLosses": 0}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

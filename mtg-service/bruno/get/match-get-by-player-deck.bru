@@ -1,0 +1,15 @@
+meta {
+  name: match-get-by-player-deck
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/match?playerID=1&deckName=Etali
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

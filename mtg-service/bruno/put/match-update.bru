@@ -1,0 +1,32 @@
+meta {
+  name: match-update
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/match/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+  "playerID": 1,
+  "deckName": "Etali",
+  "winnerName": "Ethan",
+  "format": "CEDH",
+  "playerWin": false,
+  "opponentOne": "Micah",
+  "opponentOneDeck": "Tymna_Kraum",
+  "opponentTwo": "Nathan",
+  "opponentTwoDeck": "Inalla",
+  "opponentThree": "Josh",
+  "opponentThreeDeck": "RogSi",
+  "result": "TIE",
+  "playedAt": "2026-02-10T12:00:00"
+}
+
+settings {
+  encodeUrl: true
+}
+

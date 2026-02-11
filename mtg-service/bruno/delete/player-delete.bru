@@ -1,0 +1,20 @@
+meta {
+  name: player-delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/player/1?deckName=Etali
+  body: none
+  auth: inherit
+}
+
+params:query {
+  deckName: Etali
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

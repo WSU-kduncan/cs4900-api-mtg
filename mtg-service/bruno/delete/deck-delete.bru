@@ -1,0 +1,20 @@
+meta {
+  name: deck-delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/deck/?deckName=Tymna_Kraum
+  body: none
+  auth: inherit
+}
+
+params:query {
+  deckName: Tymna_Kraum
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

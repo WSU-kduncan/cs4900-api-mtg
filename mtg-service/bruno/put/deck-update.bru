@@ -1,0 +1,26 @@
+meta {
+  name: deck-update
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/deck/Kinnan
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+  "wins": 0,
+  "losses": 0,
+  "ties": 0,
+  "casualWins": 0,
+  "casualLosses": 0
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

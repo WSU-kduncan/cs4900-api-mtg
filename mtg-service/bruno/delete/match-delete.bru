@@ -1,0 +1,16 @@
+meta {
+  name: match-delete
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{baseUrl}}/match/1
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
